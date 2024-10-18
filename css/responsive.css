@@ -1064,7 +1064,7 @@
   .square-post .blog-post-txt { padding: 0 30px 0 50px; }
 
   .posts-category { margin-top: 20px; margin-bottom: 40px; }
-  ..posts-category span { top: -1.5px; }
+  .posts-category span { top: -1.5px; }
   .posts-category.ico-20 [class*="flaticon-"]:before, 
   .posts-category .more-projects.ico-20 [class*="flaticon-"]:after { font-size: 1.125rem; } 
 
@@ -1090,7 +1090,7 @@
   .comment-meta h6 { margin-bottom: 5px; }
   .comment-date, .btn-reply a { font-size: 1rem; } 
 
-  .post-comments #leave-comment h5 {; margin-top: 60px; }
+  .post-comments #leave-comment h5 { margin-top: 60px; }
   .comment-form .form-control { height: 52px; font-size: 1.05rem; }
   .comment-form textarea { min-height: 190px; }
 
@@ -2145,7 +2145,7 @@
   #statistic-2 .statistic-block-digit { display: block!important; }
 
   h2.statistic-number { letter-spacing: -0.5px; }
-  .txt-block-stat h2.statistic-number, .#statistic-5 .statistic-digit h2 { font-size: 2.5rem; letter-spacing: -0.5px; }
+  .txt-block-stat h2.statistic-number, #statistic-5 .statistic-digit h2 { font-size: 2.5rem; letter-spacing: -0.5px; }
   #statistic-1 h2.statistic-number { font-size: 2.5rem; line-height: 1; letter-spacing: -0.5px; }
   #sb-2-1 h2.statistic-number, #sb-2-2 h2.statistic-number { margin-bottom: 10px; }
   #sb-2-3 .statistic-block p.p-sm, #sb-2-4 .statistic-block p.p-sm { margin-top: 10px; }
