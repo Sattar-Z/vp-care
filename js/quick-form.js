@@ -22,7 +22,9 @@ $(document).ready(function () {
 
     // Set the loading text or spinner
     $(".loading")
-      .html('<img src="images/Spinner@1x-1.0s-200px-200px.gif" alt="Loading..." />')
+      .html(
+        '<img src="images/Ellipsis@1x-4.2s-200px-200px.svg" alt="Loading..." />'
+      )
       .fadeIn("slow");
 
     // Create a template params object to pass data to EmailJS
