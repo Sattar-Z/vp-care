@@ -1,46 +1,60 @@
-// JavaScript Document
-$(document).ready(function() {
+(function () {
+  emailjs.init("ULwylaTQ35dPSIHp0"); // Initialize EmailJS with your Public Key
+})();
 
-    "use strict";
-    
-    $(".quick-form").submit(function(e) {
-        e.preventDefault();
-        var email = $(".email");
-        var flag = false;
-        if (email.val() == "") {
-            email.closest(".form-control").addClass("error");
-            email.focus();
-            flag = false;
-            return false;
-        } else {
-            email.closest(".form-control").removeClass("error").addClass("success");
-            flag = true;
-        }
-        var dataString = "&email=" + email.val();
-        $(".loading").fadeIn("slow").html("Loading...");
-        $.ajax({
-            type: "POST",
-            data: dataString,
-            url: "php/quickForm.php",
-            cache: false,
-            success: function (d) {
-                $(".form-control").removeClass("success");
-					if(d == 'success') // Message Sent? Show the 'Thank You' message and hide the form
-						$('.loading').fadeIn('slow').html('<font color="#48af4b">Mail sent Successfully.</font>').delay(3000).fadeOut('slow');
-					else
-						$('.loading').fadeIn('slow').html('<font color="#ff5607">Mail not sent.</font>').delay(3000).fadeOut('slow');
-                        document.quickform.reset(); 
+$(document).ready(function () {
+  "use strict";
 
-								  }
-        });
-        return false;
-    });
+  $(".quick-form").submit(function (e) {
+    e.preventDefault();
 
-    $("#reset").on('click', function() {
-        $(".form-control").removeClass("success").removeClass("error");
-    });
+    // Clear any previous messages or errors
+    $(".loading").html("").hide();
+    var email = $(".email");
 
-})
+    if (email.val() == "") {
+      email.closest(".form-control").addClass("error");
+      email.focus();
+      return false;
+    } else {
+      email.closest(".form-control").removeClass("error").addClass("success");
+    }
 
+    // Set the loading text or spinner
+    $(".loading")
+      .html('<img src="images/Spinner@1x-1.0s-200px-200px.gif" alt="Loading..." />')
+      .fadeIn("slow");
 
+    // Create a template params object to pass data to EmailJS
+    var templateParams = {
+      email: email.val(),
+    };
 
+    // Send the email using EmailJS
+    emailjs.send("service_bj3m2fl", "template_tgnnl79", templateParams).then(
+      function (response) {
+        // On success
+        $(".form-control").removeClass("success");
+        $(".loading")
+          .html('<font color="#48af4b">Mail sent successfully.</font>')
+          .delay(3000)
+          .fadeOut("slow");
+        document.quickform.reset(); // Reset the form
+      },
+      function (error) {
+        // On error
+        $(".loading")
+          .html('<font color="#ff5607">Mail not sent. Please try again.</font>')
+          .delay(3000)
+          .fadeOut("slow");
+      }
+    );
+
+    return false; // Prevent form submission
+  });
+
+  // Reset button handler
+  $("#reset").on("click", function () {
+    $(".form-control").removeClass("success").removeClass("error");
+  });
+});

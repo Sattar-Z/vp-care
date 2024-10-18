@@ -170,17 +170,24 @@
                     Contact us today to learn more about how our stoma care
                     services can support you.
                   </h4>
-                  <div class="row justify-content-center">
-                    <div class="col-lg-5 col-md-5 col-6">
-                      <a
-                        type="button"
-                        class="btn btn-lg"
-                        style="border: 1px solid black"
-                        @click="callUs"
-                      >
-                        (+44) 754 1292 020
-                      </a>
-                    </div>
+                  <div class="btns-group">
+                    <a
+                      href="tel:(+44) 754 1292 020"
+                      type="button"
+                      class="btn"
+                      style="border: 1px solid black"
+                    >
+                      (+44) 754 1292 020
+                    </a>
+                    <a
+                      href="mailto:Vpcareltd@gmail.com"
+                      type="button"
+                      class="btn"
+                      style="border: 1px solid black"
+                      @click="callUs"
+                    >
+                      Vpcareltd@gmail.com
+                    </a>
                   </div>
                 </div>
               </div>
@@ -329,6 +336,7 @@
 
     <!-- EXTERNAL SCRIPTS
 		============================================= -->
+    <script src="js/common-service.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
