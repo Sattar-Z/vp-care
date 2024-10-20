@@ -485,13 +485,43 @@
   
   .bg--01 { background-image: url(../images/bg-01.jpg); }
   .bg--02 { background-image: url(../images/bg-02.jpg); }
-  .bg--03 { background-image: url(../images/yellow-3.jpg); }
+  /* .bg--03 { background-image: url(../images/yellow-3.jpg); } */
   .bg--04 { background-image: url(../images/bg-04.jpg); }
   .bg--05 { background-image: url(../images/bg-05.jpg); }
   .bg--06 { background-image: url(../images/bg-06.jpg); }
   .bg--07 { background-image: url(../images/bg-07.jpg); }
   .bg--08 { background-image: url(../images/bg-08.jpg); }
   
+  .bg--03 {
+    position: relative;
+    overflow: hidden; /* Ensures the pseudo-element doesn’t extend beyond the parent */
+  }
+  
+  .bg--03::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/yellow-3.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensures the background image stays behind the text */
+  }
+  
+  .bg--03::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* Apply semi-transparent black tint */
+    z-index: -1; /* Ensures the tint stays behind the text */
+  }
+
+
   /*------------------------------------------*/
   /*  SECTION DIVIDER
   /*------------------------------------------*/
@@ -3328,14 +3358,36 @@
   
   #hero-1 {
     background-image: url(../images/hero-11.jpg);
-    padding-top: 130px;
+    padding-top: 30px;
     padding-bottom: 100px;
   }
   
   .hero-1-txt p {
     padding-right: 2%;
   }
-  
+
+  .responsive-image {
+    width: auto;
+    height: auto;
+  }
+
+  .text-container{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .text-box-88 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+@media only screen and (max-width: 768px) {
+  .responsive-image {
+    content: url("../images/elevate02.jpg")
+  }
+}
   /*------------------------------------------*/
   /*  HERO-2
   /*------------------------------------------*/
